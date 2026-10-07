@@ -1,0 +1,29 @@
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# IntelliJ local files
+/shelf/
+/workspace.xml
+/httpRequests/
+/queries/
+/dataSources/
+/dataSources.local.xml
+
+# Maven
+target/
+
+# Compiled files
+*.class
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
+# Environment / secrets
+.env
+.env.*
