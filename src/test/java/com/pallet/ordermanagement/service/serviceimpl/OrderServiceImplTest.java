@@ -303,7 +303,7 @@ class OrderServiceImplTest {
                 .currency("INR")
                 .build();
 
-        when(orderRepository.findById(100000L))
+        when(orderRepository.findByIdWithItems(100000L))
                 .thenReturn(Optional.of(order));
 
         OrderResponse response = orderService.getOrderById(100000L);
@@ -315,13 +315,13 @@ class OrderServiceImplTest {
         assertEquals(new BigDecimal("1999.98"), response.getTotalAmount());
         assertEquals("INR", response.getCurrency());
 
-        verify(orderRepository).findById(100000L);
+        verify(orderRepository).findByIdWithItems(100000L);
     }
 
     @Test
     void shouldThrowExceptionWhenOrderNotFound() {
 
-        when(orderRepository.findById(999999L))
+        when(orderRepository.findByIdWithItems(999999L))
                 .thenReturn(Optional.empty());
 
         assertThrows(
@@ -329,7 +329,7 @@ class OrderServiceImplTest {
                 () -> orderService.getOrderById(999999L)
         );
 
-        verify(orderRepository).findById(999999L);
+        verify(orderRepository).findByIdWithItems(999999L);
     }
 
     @Test
